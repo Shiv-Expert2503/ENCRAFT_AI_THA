@@ -1,0 +1,8 @@
+1. One thing i can see is that legend is the most important part! so first try to grab the legen from the drawing then eneral notes and key/flag notes(80:10:10)
+2. Then send the each floor or page drawing one by one to vlm and ask for the details of each floor or page
+3. After process 1 and 2 are completed store them in a structured output (no need for vectors)
+4. Access the user querry and pass the stored input for the image and let llm part of vlm answer it
+
+
+
+
