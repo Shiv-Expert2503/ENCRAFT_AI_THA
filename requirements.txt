@@ -1,0 +1,6 @@
+# Phase 1: PDF Vector & Image Processing
+PyMuPDF
+Pillow
+
+
+#Common
