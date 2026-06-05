@@ -89,7 +89,7 @@ class RoutingDecision(BaseModel):
         description="True if the system needs the legend to know what a specific symbol looks like."
     )
     target_pages: list[str] = Field(
-        description="List of specific pages/layouts mentioned, or ['all'] if not specified."
+        description="List of absolute 1-indexed PDF page numbers as strings (e.g., ['1', '2']). DO NOT output architectural sheet names like 'ME-1010'. You must map the requested layout to its absolute PDF page number using the provided text. Use ['all'] if no specific page is mentioned."
     )
     target_entities: list[str] = Field(
         description="The specific items being searched for, e.g., ['supply air diffuser']."
