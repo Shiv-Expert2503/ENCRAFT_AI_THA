@@ -362,7 +362,7 @@ The resulting crops worked substantially better for VLM counting.
 ---
 
 # Current Results
-
+This approach was that good that the below results are from GEMINI 2.5-flash model . No pro model used (which is the SOTA in current market.)
 For Image 2 Question 1:
 
 Ground truth:
