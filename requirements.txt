@@ -4,7 +4,7 @@ Pillow
 pdfplumber
 google-genai
 python-dotenv
-opencv-python
+opencv-python-headless
 instructor 
 pydantic 
 fastapi
