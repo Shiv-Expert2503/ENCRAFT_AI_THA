@@ -8,6 +8,7 @@ import sys
 import time
 import fitz
 import random
+import re
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 if str(BASE_DIR) not in sys.path:
@@ -22,6 +23,13 @@ def _slugify(value: str) -> str:
     )
     cleaned = cleaned.strip("_")
     return cleaned or "document"
+
+def extract_short_codes_fast(step5_answer_text):
+    # Added [*|-] to catch either asterisks or dashes.
+    # The + ensures it catches 1, 2, 3, or 20 character abbreviations!
+    extracted = re.findall(r'[*|-]\s*([A-Z0-9]+)\s*:', step5_answer_text)
+    print(f"[+] Regex Extracted Targets: {extracted}")
+    return extracted
 
 def create_run_directory(source_name: str) -> Path:
     OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
@@ -144,7 +152,27 @@ def orchestrate_pdf_run(
         # If it doesn't need a visual legend crop, it's probably an abbreviation. Try the fast path!
         fast_path_success = False
         if not routing_result.requires_legend_crop and target_entities:
-            fast_results = run_fast_text_locator(str(pdf_path), target_entities, str(run_directory))
+            # 1. Get the verbose answer text from your Step 5 results
+            qa_verbose_answer = manifest["step5"]["answer"]
+
+            # 2. Run your new regex function!
+            extracted_short_codes = extract_short_codes_fast(qa_verbose_answer)
+
+            # 3. Intercept and overwrite the target entities if short codes were found
+            # (We use an IF statement so that if the question was NOT about abbreviations, 
+            # it safely falls back to the original entities)
+            if len(extracted_short_codes) > 0:
+                print(f"[*] Overriding long definitions with exact short codes: {extracted_short_codes}")
+                targets_to_search = extracted_short_codes
+            else:
+                targets_to_search = manifest["step2"]["target_entities"]
+
+            # 4. NOW call your fast locator with the correct list!
+            fast_results = run_fast_text_locator(
+                pdf_path=manifest["input"]["pdf_path"], 
+                target_entities=targets_to_search,       # Pass the updated list here!
+                output_dir=manifest["input"]["run_directory"]
+            )
             if fast_results["success"]:
                 print("⚡ Fast Path Succeeded! Found abbreviations via text. Skipping VLM pipeline.")
                 manifest["fast_locator"] = fast_results

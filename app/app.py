@@ -117,7 +117,7 @@ if st.button("Run AI Pipeline", type="primary"):
     if manifest.get("fast_locator") and manifest["fast_locator"].get("success"):
         st.divider()
         st.subheader("📍 Precise Locations Found (Fast Search)")
-        st.success(f"Successfully bypassed VLM analysis. Located: {', '.join(manifest['fast_locator']['entities_found'])}")
+        st.success(f"Located: {', '.join(manifest['fast_locator']['entities_found'])}")
         
         for img_path in manifest["fast_locator"]["images"]:
             st.image(img_path, caption="Red box indicates precise location", use_container_width=True)
