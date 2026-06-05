@@ -102,9 +102,9 @@ def run_vlm_counter(
             except Exception as e:
                 error_msg = str(e).lower()
                 if "429" in error_msg or "quota" in error_msg:
-                    wait_time = (2 ** attempt) * 3  # Backoff: 3s, 6s, 12s
-                    print(f"Rate limit hit. Retrying in {wait_time} seconds...")
-                    time.sleep(wait_time)
+                    # wait_time = (2 ** attempt) * 3  # Backoff: 3s, 6s, 12s
+                    print(f"Rate limit hit. Retrying in {20} seconds...")
+                    time.sleep(20)
                 else:
                     print(f"API Error on {tile_path.name}: {e}")
                     break
@@ -126,7 +126,7 @@ def run_vlm_counter(
             master_results["tiles"][tile_path.name] = {"error": "Analysis failed or rate limited"}
 
         # Polite delay to prevent hitting the free tier RPM limit too quickly
-        time.sleep(2)
+        time.sleep(20)
 
     # Save final aggregated results
     if output_json_path:
