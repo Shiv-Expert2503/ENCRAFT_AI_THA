@@ -6,3 +6,26 @@
 
 
 
+Phases:
+
+Phase1
+pdf loader -> extract all texts for all pages, search for legend, general notes and key/flag notes and extract their page number
+symbol extraction -> pass the legend page number and other things based on the user question to vlm for the output (optional ; first will try with just saving the legend paper and directly passing it to vlm for reference of symbol, if it struggles then we add this step for specific symbol  extraction step)
+handle the table and other mappings too, so that we can directly move to the page number ofthe desired page
+
+
+Phase2
+pass the desired page, along with the legend, along with the user query to vlm and get the response
+
+massive hit and trial and prompt engeneering for this phase to get the desired output along with the uncertanity and confidence scores
+
+hit and trial includes:
+1. try with passing whole page as input if it does not work then 
+2. Tiling the pase and passing it in loops (use strides to overlapping tiles)
+3. Handle overlaped solutions in the combination phase
+
+
+Phase3:
+UI + docker + deployment 
+
+if time stays then we go for highlighting the otuput in the drawing as well, for plus points!

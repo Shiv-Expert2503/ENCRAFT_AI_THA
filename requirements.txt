@@ -1,6 +1,22 @@
 # Phase 1: PDF Vector & Image Processing
 PyMuPDF
 Pillow
+pdfplumber
+google-genai
+python-dotenv
+opencv-python
+instructor 
+pydantic 
+fastapi
+uvicorn
+python-multipart
+streamlit
 
 
 #Common
+# openai
+# ollama
+#First these commands to run then pip insatll -r requirements.txt
+#  curl -fsSL https://ollama.com/install.sh | sh
+# ollama pull mistral
+# ollama run mistral
