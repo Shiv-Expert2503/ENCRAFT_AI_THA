@@ -29,3 +29,22 @@ Phase3:
 UI + docker + deployment 
 
 if time stays then we go for highlighting the otuput in the drawing as well, for plus points!
+
+
+
+
+
+To overcome the vlm hallucination and uncertainty issues:
+
+1. I don't need gemini to call for symbol extraction. There are 2 images in example provided one legend gots extracted in text and one didn't so thats is why i created gemini call universal for both. But the gemini problem is explained in below point. So if i got the symbol name extracted in text then i will ditch the llm call for random bbox guessing. I will extract the coordinates of that text since i know on which page legend is and then in that coordinates i add padding to all 4 sides (significantly more so that 2 to 3 names also come in image ) and then crop it. By this way i will have much more reliability. So tell me can i get the coordinates from the text? Or not?
+
+
+2. Sometimes i see that gemini is struggling to find the exact symbol from the legend. Under my observation it is either upside symbol or downside symbol of it. So what i will do is add that much padding that it can have up as well as down symbol and add relevant right left padding to so that name also gets there and vlm must know via name if there are 2 to 3 symbols in the cropped image. This cropped one is much better than whole legend and wrong single symbol. We can't take risk.
+
+3. Also we will display the cropped symbol on the ui and asks for confirmation as sometimes it might get wrong too. And under my observation whenever i did rerun it almost 100% now guessed correct. If 2nd time is wrong too. Then we will pass the whole legend instead of a wrong cropped symbol. No more calls for symbol.(To save credits for free vlm demo)
+
+4. Also if somehow i can get the cropped diagram drawing from the whole pdf. Then i tile it then make vlm call them it would specifically increase some precision. But the thing is how to crop those diagrams? I know which page to search in from previous phases i know which diagram to crop. Bit didn't know how to crop. And will it be reliable or not?
+
+
+5. For uncertainty either i need more prompt tunning in the phase2 but as well multiple calls(which I can't afford rn) so will have one hard coded check that if how much , count, where is this, type of things asked in question then flag ot for uncertainty and for those make one more vlm calls passing the all inputs and answer by previous vlm in phase 2 and ask how satisfied are you explain properly or likewise prompt. 
+
