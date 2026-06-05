@@ -1,0 +1,16 @@
+{
+    "symbol_found": true,
+    "box_2d": [
+        276,
+        311,
+        301,
+        348
+    ],
+    "confidence_reasoning": "The symbol for 'SUPPLY AIR SWIRL DIFFUSER' is clearly visible under the 'DIFFUSERS AND GRILLES LEGEND' section.",
+    "input_image_path": "/home/rareboy/PycharmProjects/encraft_ai/output/run_20260605_004023_536296_image_2/legend.png",
+    "output_crop_path": "/home/rareboy/PycharmProjects/encraft_ai/output/run_20260605_004023_536296_image_2/symbol.png",
+    "target_entities": [
+        "supply air diffuser",
+        "supply air swirl diffuser"
+    ]
+}

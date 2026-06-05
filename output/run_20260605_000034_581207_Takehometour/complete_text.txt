@@ -1,0 +1,86 @@
+--- Page 1 ---
+E N C R A F T  A I   ·   E N G I N E E R I N G  T A K E - H O M E 
+MEP Drawing Interpretation 
+AI Engineering Intern  ·  Suggested duration: 2 days 
+This exercise reflects a problem we work on directly: the automated interpretation of MEP (mechanical, 
+electrical, and plumbing) construction drawings for enterprise clients. The task below is a deliberately 
+narrow version of it. We are evaluating how you scope, reason, and build, rather than the finish of the 
+final product. 
+The task 
+Build a web application, runnable locally, in which a user uploads an MEP drawing and asks a question 
+about it. The application answers using a vision-language model (VLM). 
+Two requirements apply to every answer: 
+– Grounding. The answer must show where on the drawing the information was found, with an 
+indication of confidence. 
+– Uncertainty. Where the system is not confident, it should flag the item for human review rather 
+than guess. 
+Your drawings 
+Drawing 
+Source & what it is 
+Drawing 1 
+(primary) 
+RXR Welcome Center — HVAC Floor Plan (M-101) 
+A single HVAC floor plan with numerous ceiling diffusers and a symbol legend. The Drawing 
+1 questions below apply to this sheet. 
+Drawing 2 
+Muswellbrook Depot — Mechanical Services 
+A separate mechanical set from a different source — a cover sheet with legends and floor-
+plan layouts. The Drawing 2 questions test whether your application generalises beyond the 
+first sheet. 
+The questions your application must answer 
+Your application should answer all ten questions below, and the same application must work on both 
+drawings without logic hard-coded to a single file. Every answer should indicate where on the drawing 
+the information was found and flag anything uncertain. Where the correct answer is that an item is not 
+present, the system should report that rather than return something that is not there. 
+Drawing 1 — RXR Welcome Center HVAC plan 
+1. How many ceiling supply diffusers are shown on this floor, and where is each one located? 
+2. What return-air and transfer grilles are shown, and how are they distinguished from the supply 
+diffusers? 
+3. List the exhaust fans on the sheet and their approximate locations. 
+4. What general notes apply to the diffusers and ductwork on this sheet — for example, anything 
+specified for all diffusers or all duct runs? 
+5. Does the sheet contain any flag notes or keynotes indicating an unresolved field condition or 
+coordination conflict to verify? If so, summarise each. 
+Drawing 2 — Muswellbrook Mechanical Services
+
+--- Page 2 ---
+1. Using this drawing’s legend, what is the difference between a supply air diffuser and a supply air 
+swirl diffuser, and how many of each appear on the Upper Ground layout? 
+2. What mechanical equipment is shown across the set (e.g. fan coil units, VRF condenser, 
+mechanical switchboard, MVHR unit), and on which level does each appear? 
+3. How many fire dampers are shown on the layouts, and where? 
+4. Decode the abbreviations defined on the cover sheet (e.g. FW, TD, CP, DG, UC) and locate one 
+example of any one of them on a layout. 
+5. Distinguish refrigerant pipework from condensate pipework using the pipework legend, and 
+describe where each runs. 
+What to deliver 
+– A runnable application — we should be able to start it locally from your README with a single 
+documented command. 
+– The source repository — your code, with the README described above. 
+– A decision log (approximately two pages). Covering what you built and what you deliberately 
+left out; the main technical choices and your reasons for them; where the system is unreliable and 
+how you established that; and how you would extend the approach to large, multi-sheet drawing 
+sets. Prose is sufficient; there is no need to build this part. 
+– A 3–5 minute screen recording demonstrating two or three of these questions end to end. 
+Guidance 
+– We would rather see a smaller number of questions answered reliably than all ten attempted 
+superficially. Prioritise accordingly, and record in your decision log what you chose not to do and 
+why. 
+– You may use AI coding tools such as Claude Code, Cursor, or Copilot, and we assume you will. 
+We assess how you direct these tools and the reasoning behind your decisions, not whether you 
+wrote every line by hand. 
+– There is no single correct model or architecture. We are interested in your reasoning, including the 
+alternatives you considered and set aside. 
+What we assess 
+We are assessing four things: your ability to work independently, to scope the problem sensibly, to 
+deliver an application that runs, and to reason clearly about where a VLM-based system performs well 
+and where it fails. A limited solution accompanied by an accurate account of its failure modes is 
+stronger than an ambitious one presented as complete. 
+The debrief 
+After submission, you will have a short debrief with Vivek, our founder, to review your solution: the 
+decisions you made, what you would change given more time, and a small live modification to the 
+running application. Please be prepared to navigate and explain your own code during this session, as 
+this matters more to us than the finish of the submission. 
+Submission 
+Please send the repository link, decision log, and recording to vivek@encraft.ai by 5th June 2026 midnight 
+(end of day). If anything in this brief is unclear, you are welcome to ask.

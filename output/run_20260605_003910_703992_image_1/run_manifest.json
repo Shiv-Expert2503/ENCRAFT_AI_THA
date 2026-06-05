@@ -1,0 +1,51 @@
+{
+    "run_directory": "/home/rareboy/PycharmProjects/encraft_ai/output/run_20260605_003910_703992_image_1",
+    "input": {
+        "pdf_name": "image_1.pdf",
+        "pdf_path": "/home/rareboy/PycharmProjects/encraft_ai/output/run_20260605_003910_703992_image_1/image_1.pdf",
+        "prompt": "Using this drawing\u2019s legend, what is the difference between a supply air diffuser and a supply air swirl diffuser, and how many of each appear on the Upper Ground layout?",
+        "run_directory": "/home/rareboy/PycharmProjects/encraft_ai/output/run_20260605_003910_703992_image_1"
+    },
+    "step1": {
+        "inventory_path": "/home/rareboy/PycharmProjects/encraft_ai/output/run_20260605_003910_703992_image_1/inventory.json",
+        "text_path": "/home/rareboy/PycharmProjects/encraft_ai/output/run_20260605_003910_703992_image_1/complete_text.txt"
+    },
+    "step2": {
+        "requires_image_analysis": true,
+        "requires_legend_crop": true,
+        "target_pages": [
+            "Upper Ground layout"
+        ],
+        "target_entities": [
+            "supply air diffuser",
+            "supply air swirl diffuser"
+        ],
+        "primary_action": "count",
+        "prompt": "Using this drawing\u2019s legend, what is the difference between a supply air diffuser and a supply air swirl diffuser, and how many of each appear on the Upper Ground layout?"
+    },
+    "step3": {
+        "legend_found": true,
+        "page_number": 2,
+        "box_2d": [
+            680,
+            70,
+            804,
+            275
+        ],
+        "explanation": "The legend is found on page 2, in the bottom left corner. It specifies fixture types, outlets, switches, and other electrical symbols."
+    },
+    "step4": {
+        "symbol_found": false,
+        "box_2d": [],
+        "confidence_reasoning": "The image provided is a legend for electrical symbols, and it does not contain any symbols for Supply Air Swirl Diffusers or any other HVAC components."
+    },
+    "artifacts": {
+        "inventory_json": "/home/rareboy/PycharmProjects/encraft_ai/output/run_20260605_003910_703992_image_1/inventory.json",
+        "complete_text": "/home/rareboy/PycharmProjects/encraft_ai/output/run_20260605_003910_703992_image_1/complete_text.txt",
+        "routing_json": "/home/rareboy/PycharmProjects/encraft_ai/output/run_20260605_003910_703992_image_1/routing.json",
+        "legend_json": "/home/rareboy/PycharmProjects/encraft_ai/output/run_20260605_003910_703992_image_1/legend.json",
+        "legend_png": "/home/rareboy/PycharmProjects/encraft_ai/output/run_20260605_003910_703992_image_1/legend.png",
+        "symbol_json": "/home/rareboy/PycharmProjects/encraft_ai/output/run_20260605_003910_703992_image_1/symbol.json",
+        "symbol_png": null
+    }
+}

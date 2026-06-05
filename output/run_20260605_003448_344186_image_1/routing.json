@@ -1,0 +1,13 @@
+{
+    "requires_image_analysis": false,
+    "requires_legend_crop": false,
+    "target_pages": [
+        "all"
+    ],
+    "target_entities": [
+        "flag notes",
+        "keynotes"
+    ],
+    "primary_action": "extract_notes",
+    "prompt": "Does the sheet contain any flag notes or keynotes indicating an unresolved field condition or\ncoordination conflict to verify? If so, summarise each."
+}

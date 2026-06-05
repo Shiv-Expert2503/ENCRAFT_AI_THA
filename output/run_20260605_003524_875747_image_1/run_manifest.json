@@ -1,0 +1,34 @@
+{
+    "run_directory": "/home/rareboy/PycharmProjects/encraft_ai/output/run_20260605_003524_875747_image_1",
+    "input": {
+        "pdf_name": "image_1.pdf",
+        "pdf_path": "/home/rareboy/PycharmProjects/encraft_ai/output/run_20260605_003524_875747_image_1/image_1.pdf",
+        "prompt": "List the exhaust fans on the sheet and their approximate locations.",
+        "run_directory": "/home/rareboy/PycharmProjects/encraft_ai/output/run_20260605_003524_875747_image_1"
+    },
+    "step1": {
+        "inventory_path": "/home/rareboy/PycharmProjects/encraft_ai/output/run_20260605_003524_875747_image_1/inventory.json",
+        "text_path": "/home/rareboy/PycharmProjects/encraft_ai/output/run_20260605_003524_875747_image_1/complete_text.txt"
+    },
+    "step2": {
+        "requires_image_analysis": true,
+        "requires_legend_crop": true,
+        "target_pages": [
+            "1",
+            "2"
+        ],
+        "target_entities": [
+            "exhaust fan"
+        ],
+        "primary_action": "find_location",
+        "prompt": "List the exhaust fans on the sheet and their approximate locations."
+    },
+    "step3": null,
+    "artifacts": {
+        "inventory_json": "/home/rareboy/PycharmProjects/encraft_ai/output/run_20260605_003524_875747_image_1/inventory.json",
+        "complete_text": "/home/rareboy/PycharmProjects/encraft_ai/output/run_20260605_003524_875747_image_1/complete_text.txt",
+        "routing_json": "/home/rareboy/PycharmProjects/encraft_ai/output/run_20260605_003524_875747_image_1/routing.json",
+        "legend_json": null,
+        "legend_png": "/home/rareboy/PycharmProjects/encraft_ai/output/run_20260605_003524_875747_image_1/legend.png"
+    }
+}

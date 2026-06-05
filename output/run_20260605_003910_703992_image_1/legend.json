@@ -1,0 +1,13 @@
+{
+    "legend_found": true,
+    "page_number": 2,
+    "box_2d": [
+        680,
+        70,
+        804,
+        275
+    ],
+    "explanation": "The legend is found on page 2, in the bottom left corner. It specifies fixture types, outlets, switches, and other electrical symbols.",
+    "output_image_path": "/home/rareboy/PycharmProjects/encraft_ai/output/run_20260605_003910_703992_image_1/legend.png",
+    "output_json_path": "/home/rareboy/PycharmProjects/encraft_ai/output/run_20260605_003910_703992_image_1/legend.json"
+}

@@ -1,0 +1,13 @@
+{
+    "legend_found": true,
+    "page_number": 1,
+    "box_2d": [
+        181,
+        28,
+        558,
+        831
+    ],
+    "explanation": "The MEP legend is located on the first page, near the top of the sheet, and contains sections for 'DUCTWORK LEGEND', 'DIFFUSERS AND GRILLES LEGEND', 'EQUIPMENT LEGEND', 'SENSORS & CONTROL POINTS LEGEND', 'PIPEWORK LEGEND', 'ABBREVIATIONS', 'RULES AND REGULATIONS', 'WORKS BY BUILDER', and 'PROJECT NOTES'. The legend provides symbols and descriptions for various mechanical components and design guidelines.",
+    "output_image_path": "/home/rareboy/PycharmProjects/encraft_ai/output/run_20260605_003239_747098_image_2/legend.png",
+    "output_json_path": "/home/rareboy/PycharmProjects/encraft_ai/output/run_20260605_003239_747098_image_2/legend.json"
+}

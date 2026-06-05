@@ -1,0 +1,566 @@
+{
+    "total_pages": 2,
+    "pages": {
+        "page_1": {
+            "all_text_blocks": [
+                {
+                    "bbox": [
+                        66.02400207519531,
+                        57.403221130371094,
+                        307.093994140625,
+                        91.04000854492188
+                    ],
+                    "text": "E N C R A F T  A I   \u00b7   E N G I N E E R I N G  T A K E - H O M E \nMEP Drawing Interpretation"
+                },
+                {
+                    "bbox": [
+                        66.02400207519531,
+                        93.30318450927734,
+                        287.62567138671875,
+                        105.07758331298828
+                    ],
+                    "text": "AI Engineering Intern  \u00b7  Suggested duration: 2 days"
+                },
+                {
+                    "bbox": [
+                        66.02400207519531,
+                        115.1432113647461,
+                        546.345703125,
+                        168.67762756347656
+                    ],
+                    "text": "This exercise reflects a problem we work on directly: the automated interpretation of MEP (mechanical, \nelectrical, and plumbing) construction drawings for enterprise clients. The task below is a deliberately \nnarrow version of it. We are evaluating how you scope, reason, and build, rather than the finish of the \nfinal product."
+                },
+                {
+                    "bbox": [
+                        66.02400207519531,
+                        182.8400115966797,
+                        118.07599639892578,
+                        196.2200164794922
+                    ],
+                    "text": "The task"
+                },
+                {
+                    "bbox": [
+                        66.02400207519531,
+                        202.02322387695312,
+                        546.94775390625,
+                        227.7176055908203
+                    ],
+                    "text": "Build a web application, runnable locally, in which a user uploads an MEP drawing and asks a question \nabout it. The application answers using a vision-language model (VLM)."
+                },
+                {
+                    "bbox": [
+                        66.02400207519531,
+                        236.85317993164062,
+                        260.98565673828125,
+                        248.62757873535156
+                    ],
+                    "text": "Two requirements apply to every answer:"
+                },
+                {
+                    "bbox": [
+                        77.06400299072266,
+                        254.25320434570312,
+                        524.959716796875,
+                        266.027587890625
+                    ],
+                    "text": "\u2013 Grounding. The answer must show where on the drawing the information was found, with an"
+                },
+                {
+                    "bbox": [
+                        89.06400299072266,
+                        267.6932067871094,
+                        204.7056884765625,
+                        279.46759033203125
+                    ],
+                    "text": "indication of confidence."
+                },
+                {
+                    "bbox": [
+                        77.06400299072266,
+                        285.6932067871094,
+                        532.6829223632812,
+                        297.46759033203125
+                    ],
+                    "text": "\u2013 Uncertainty. Where the system is not confident, it should flag the item for human review rather"
+                },
+                {
+                    "bbox": [
+                        89.06400299072266,
+                        299.1332092285156,
+                        146.23568725585938,
+                        310.9075927734375
+                    ],
+                    "text": "than guess."
+                },
+                {
+                    "bbox": [
+                        66.02400207519531,
+                        324.83001708984375,
+                        152.75599670410156,
+                        338.2099914550781
+                    ],
+                    "text": "Your drawings"
+                },
+                {
+                    "bbox": [
+                        73.10399627685547,
+                        347.61322021484375,
+                        236.0256805419922,
+                        359.3876037597656
+                    ],
+                    "text": "Drawing \nSource & what it is"
+                },
+                {
+                    "bbox": [
+                        73.10399627685547,
+                        368.4931945800781,
+                        126.31584167480469,
+                        392.3876037597656
+                    ],
+                    "text": "Drawing 1 \n(primary)"
+                },
+                {
+                    "bbox": [
+                        148.10000610351562,
+                        368.61322021484375,
+                        537.0828247070312,
+                        405.34759521484375
+                    ],
+                    "text": "RXR Welcome Center \u2014 HVAC Floor Plan (M-101) \nA single HVAC floor plan with numerous ceiling diffusers and a symbol legend. The Drawing \n1 questions below apply to this sheet."
+                },
+                {
+                    "bbox": [
+                        73.10399627685547,
+                        414.59320068359375,
+                        535.9357299804688,
+                        462.3675842285156
+                    ],
+                    "text": "Drawing 2 \nMuswellbrook Depot \u2014 Mechanical Services \nA separate mechanical set from a different source \u2014 a cover sheet with legends and floor-\nplan layouts. The Drawing 2 questions test whether your application generalises beyond the \nfirst sheet."
+                },
+                {
+                    "bbox": [
+                        66.02400207519531,
+                        479.1700134277344,
+                        323.5660095214844,
+                        492.54998779296875
+                    ],
+                    "text": "The questions your application must answer"
+                },
+                {
+                    "bbox": [
+                        66.02400207519531,
+                        498.35321044921875,
+                        540.738525390625,
+                        551.767578125
+                    ],
+                    "text": "Your application should answer all ten questions below, and the same application must work on both \ndrawings without logic hard-coded to a single file. Every answer should indicate where on the drawing \nthe information was found and flag anything uncertain. Where the correct answer is that an item is not \npresent, the system should report that rather than return something that is not there."
+                },
+                {
+                    "bbox": [
+                        66.02400207519531,
+                        560.5587768554688,
+                        311.0256652832031,
+                        572.868408203125
+                    ],
+                    "text": "Drawing 1 \u2014 RXR Welcome Center HVAC plan"
+                },
+                {
+                    "bbox": [
+                        74.06400299072266,
+                        577.1032104492188,
+                        512.795654296875,
+                        588.8776245117188
+                    ],
+                    "text": "1. How many ceiling supply diffusers are shown on this floor, and where is each one located?"
+                },
+                {
+                    "bbox": [
+                        74.06400299072266,
+                        595.5831909179688,
+                        527.9876098632812,
+                        607.3576049804688
+                    ],
+                    "text": "2. What return-air and transfer grilles are shown, and how are they distinguished from the supply"
+                },
+                {
+                    "bbox": [
+                        89.06400299072266,
+                        609.023193359375,
+                        137.47567749023438,
+                        620.797607421875
+                    ],
+                    "text": "diffusers?"
+                },
+                {
+                    "bbox": [
+                        74.06400299072266,
+                        627.503173828125,
+                        400.9256591796875,
+                        639.277587890625
+                    ],
+                    "text": "3. List the exhaust fans on the sheet and their approximate locations."
+                },
+                {
+                    "bbox": [
+                        74.06400299072266,
+                        645.983154296875,
+                        527.6101684570312,
+                        657.757568359375
+                    ],
+                    "text": "4. What general notes apply to the diffusers and ductwork on this sheet \u2014 for example, anything"
+                },
+                {
+                    "bbox": [
+                        89.06400299072266,
+                        659.5431518554688,
+                        282.3456726074219,
+                        671.3175659179688
+                    ],
+                    "text": "specified for all diffusers or all duct runs?"
+                },
+                {
+                    "bbox": [
+                        74.06400299072266,
+                        678.023193359375,
+                        520.5775756835938,
+                        689.797607421875
+                    ],
+                    "text": "5. Does the sheet contain any flag notes or keynotes indicating an unresolved field condition or"
+                },
+                {
+                    "bbox": [
+                        89.06400299072266,
+                        691.4591674804688,
+                        338.88568115234375,
+                        703.2335815429688
+                    ],
+                    "text": "coordination conflict to verify? If so, summarise each."
+                },
+                {
+                    "bbox": [
+                        66.02400207519531,
+                        711.5447998046875,
+                        322.6656799316406,
+                        723.8544311523438
+                    ],
+                    "text": "Drawing 2 \u2014 Muswellbrook Mechanical Services"
+                }
+            ],
+            "found_targets": {
+                "LEGEND": {
+                    "bbox": [
+                        73.10399627685547,
+                        414.59320068359375,
+                        535.9357299804688,
+                        462.3675842285156
+                    ],
+                    "raw_text": "Drawing 2 \nMuswellbrook Depot \u2014 Mechanical Services \nA separate mechanical set from a different source \u2014 a cover sheet with legends and floor-\nplan layouts. The Drawing 2 questions test whether your application generalises beyond the \nfirst sheet."
+                },
+                "GENERAL NOTES": {
+                    "bbox": [
+                        74.06400299072266,
+                        645.983154296875,
+                        527.6101684570312,
+                        657.757568359375
+                    ],
+                    "raw_text": "4. What general notes apply to the diffusers and ductwork on this sheet \u2014 for example, anything"
+                },
+                "FLAG NOTES": {
+                    "bbox": [
+                        74.06400299072266,
+                        678.023193359375,
+                        520.5775756835938,
+                        689.797607421875
+                    ],
+                    "raw_text": "5. Does the sheet contain any flag notes or keynotes indicating an unresolved field condition or"
+                }
+            }
+        },
+        "page_2": {
+            "all_text_blocks": [
+                {
+                    "bbox": [
+                        74.06400299072266,
+                        59.323204040527344,
+                        538.5083618164062,
+                        71.09760284423828
+                    ],
+                    "text": "1. Using this drawing\u2019s legend, what is the difference between a supply air diffuser and a supply air"
+                },
+                {
+                    "bbox": [
+                        89.06400299072266,
+                        72.7832260131836,
+                        435.8456726074219,
+                        84.55762481689453
+                    ],
+                    "text": "swirl diffuser, and how many of each appear on the Upper Ground layout?"
+                },
+                {
+                    "bbox": [
+                        74.06400299072266,
+                        91.2632064819336,
+                        503.396240234375,
+                        103.03760528564453
+                    ],
+                    "text": "2. What mechanical equipment is shown across the set (e.g. fan coil units, VRF condenser,"
+                },
+                {
+                    "bbox": [
+                        89.06400299072266,
+                        104.70320892333984,
+                        449.1656799316406,
+                        116.47760772705078
+                    ],
+                    "text": "mechanical switchboard, MVHR unit), and on which level does each appear?"
+                },
+                {
+                    "bbox": [
+                        74.06400299072266,
+                        123.18318939208984,
+                        383.4056701660156,
+                        134.9575958251953
+                    ],
+                    "text": "3. How many fire dampers are shown on the layouts, and where?"
+                },
+                {
+                    "bbox": [
+                        74.06400299072266,
+                        141.66317749023438,
+                        539.1100463867188,
+                        153.4375762939453
+                    ],
+                    "text": "4. Decode the abbreviations defined on the cover sheet (e.g. FW, TD, CP, DG, UC) and locate one"
+                },
+                {
+                    "bbox": [
+                        89.06400299072266,
+                        155.22323608398438,
+                        278.86566162109375,
+                        166.9976348876953
+                    ],
+                    "text": "example of any one of them on a layout."
+                },
+                {
+                    "bbox": [
+                        74.06400299072266,
+                        173.70321655273438,
+                        513.3546142578125,
+                        185.4776153564453
+                    ],
+                    "text": "5. Distinguish refrigerant pipework from condensate pipework using the pipework legend, and"
+                },
+                {
+                    "bbox": [
+                        89.06400299072266,
+                        187.14321899414062,
+                        215.14569091796875,
+                        198.91761779785156
+                    ],
+                    "text": "describe where each runs."
+                },
+                {
+                    "bbox": [
+                        66.02400207519531,
+                        212.7200164794922,
+                        155.39599609375,
+                        226.1000213623047
+                    ],
+                    "text": "What to deliver"
+                },
+                {
+                    "bbox": [
+                        77.06400299072266,
+                        231.90322875976562,
+                        537.3380737304688,
+                        243.67762756347656
+                    ],
+                    "text": "\u2013 A runnable application \u2014 we should be able to start it locally from your README with a single"
+                },
+                {
+                    "bbox": [
+                        89.06400299072266,
+                        245.49319458007812,
+                        201.7056884765625,
+                        257.267578125
+                    ],
+                    "text": "documented command."
+                },
+                {
+                    "bbox": [
+                        77.06400299072266,
+                        263.4931945800781,
+                        437.5256652832031,
+                        275.267578125
+                    ],
+                    "text": "\u2013 The source repository \u2014 your code, with the README described above."
+                },
+                {
+                    "bbox": [
+                        77.06400299072266,
+                        281.3731994628906,
+                        536.152587890625,
+                        293.1475830078125
+                    ],
+                    "text": "\u2013 A decision log (approximately two pages). Covering what you built and what you deliberately"
+                },
+                {
+                    "bbox": [
+                        89.06400299072266,
+                        294.9331970214844,
+                        545.5517578125,
+                        333.58758544921875
+                    ],
+                    "text": "left out; the main technical choices and your reasons for them; where the system is unreliable and \nhow you established that; and how you would extend the approach to large, multi-sheet drawing \nsets. Prose is sufficient; there is no need to build this part."
+                },
+                {
+                    "bbox": [
+                        77.06400299072266,
+                        339.8132019042969,
+                        516.9956665039062,
+                        351.58758544921875
+                    ],
+                    "text": "\u2013 A 3\u20135 minute screen recording demonstrating two or three of these questions end to end."
+                },
+                {
+                    "bbox": [
+                        66.02400207519531,
+                        365.510009765625,
+                        124.07599639892578,
+                        378.8899841308594
+                    ],
+                    "text": "Guidance"
+                },
+                {
+                    "bbox": [
+                        77.06400299072266,
+                        384.6932067871094,
+                        520.4824829101562,
+                        396.46759033203125
+                    ],
+                    "text": "\u2013 We would rather see a smaller number of questions answered reliably than all ten attempted"
+                },
+                {
+                    "bbox": [
+                        89.06400299072266,
+                        398.1332092285156,
+                        538.67724609375,
+                        423.3675842285156
+                    ],
+                    "text": "superficially. Prioritise accordingly, and record in your decision log what you chose not to do and \nwhy."
+                },
+                {
+                    "bbox": [
+                        77.06400299072266,
+                        429.59320068359375,
+                        535.9739379882812,
+                        441.3675842285156
+                    ],
+                    "text": "\u2013 You may use AI coding tools such as Claude Code, Cursor, or Copilot, and we assume you will."
+                },
+                {
+                    "bbox": [
+                        89.06400299072266,
+                        443.033203125,
+                        539.59619140625,
+                        468.3675842285156
+                    ],
+                    "text": "We assess how you direct these tools and the reasoning behind your decisions, not whether you \nwrote every line by hand."
+                },
+                {
+                    "bbox": [
+                        77.06400299072266,
+                        474.59320068359375,
+                        548.498046875,
+                        486.3675842285156
+                    ],
+                    "text": "\u2013 There is no single correct model or architecture. We are interested in your reasoning, including the"
+                },
+                {
+                    "bbox": [
+                        89.06400299072266,
+                        488.033203125,
+                        288.2256774902344,
+                        499.8075866699219
+                    ],
+                    "text": "alternatives you considered and set aside."
+                },
+                {
+                    "bbox": [
+                        66.02400207519531,
+                        513.72998046875,
+                        161.39599609375,
+                        527.1099853515625
+                    ],
+                    "text": "What we assess"
+                },
+                {
+                    "bbox": [
+                        66.02400207519531,
+                        532.7931518554688,
+                        542.3510131835938,
+                        586.2376098632812
+                    ],
+                    "text": "We are assessing four things: your ability to work independently, to scope the problem sensibly, to \ndeliver an application that runs, and to reason clearly about where a VLM-based system performs well \nand where it fails. A limited solution accompanied by an accurate account of its failure modes is \nstronger than an ambitious one presented as complete."
+                },
+                {
+                    "bbox": [
+                        66.02400207519531,
+                        600.52001953125,
+                        134.03599548339844,
+                        613.9000244140625
+                    ],
+                    "text": "The debrief"
+                },
+                {
+                    "bbox": [
+                        66.02400207519531,
+                        619.7031860351562,
+                        543.642333984375,
+                        673.1176147460938
+                    ],
+                    "text": "After submission, you will have a short debrief with Vivek, our founder, to review your solution: the \ndecisions you made, what you would change given more time, and a small live modification to the \nrunning application. Please be prepared to navigate and explain your own code during this session, as \nthis matters more to us than the finish of the submission."
+                },
+                {
+                    "bbox": [
+                        66.02400207519531,
+                        687.39599609375,
+                        137.39599609375,
+                        700.7760009765625
+                    ],
+                    "text": "Submission"
+                },
+                {
+                    "bbox": [
+                        66.02400207519531,
+                        706.6422119140625,
+                        535.1798706054688,
+                        731.0736083984375
+                    ],
+                    "text": "Please send the repository link, decision log, and recording to vivek@encraft.ai by 5th June 2026 midnight \n(end of day). If anything in this brief is unclear, you are welcome to ask."
+                }
+            ],
+            "found_targets": {
+                "LEGEND": {
+                    "bbox": [
+                        74.06400299072266,
+                        173.70321655273438,
+                        513.3546142578125,
+                        185.4776153564453
+                    ],
+                    "raw_text": "5. Distinguish refrigerant pipework from condensate pipework using the pipework legend, and"
+                },
+                "ABBREVIATIONS": {
+                    "bbox": [
+                        74.06400299072266,
+                        141.66317749023438,
+                        539.1100463867188,
+                        153.4375762939453
+                    ],
+                    "raw_text": "4. Decode the abbreviations defined on the cover sheet (e.g. FW, TD, CP, DG, UC) and locate one"
+                }
+            }
+        }
+    }
+}

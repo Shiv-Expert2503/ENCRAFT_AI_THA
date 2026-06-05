@@ -1,0 +1,11 @@
+{
+    "symbol_found": false,
+    "box_2d": [],
+    "confidence_reasoning": "The image provided is a legend for electrical symbols, and it does not contain any symbols for Supply Air Swirl Diffusers or any other HVAC components.",
+    "input_image_path": "/home/rareboy/PycharmProjects/encraft_ai/output/run_20260605_003910_703992_image_1/legend.png",
+    "output_crop_path": "/home/rareboy/PycharmProjects/encraft_ai/output/run_20260605_003910_703992_image_1/symbol.png",
+    "target_entities": [
+        "supply air diffuser",
+        "supply air swirl diffuser"
+    ]
+}

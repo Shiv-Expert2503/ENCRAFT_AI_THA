@@ -1,0 +1,34 @@
+{
+    "run_directory": "/home/rareboy/PycharmProjects/encraft_ai/output/run_20260605_003448_344186_image_1",
+    "input": {
+        "pdf_name": "image_1.pdf",
+        "pdf_path": "/home/rareboy/PycharmProjects/encraft_ai/output/run_20260605_003448_344186_image_1/image_1.pdf",
+        "prompt": "Does the sheet contain any flag notes or keynotes indicating an unresolved field condition or\ncoordination conflict to verify? If so, summarise each.",
+        "run_directory": "/home/rareboy/PycharmProjects/encraft_ai/output/run_20260605_003448_344186_image_1"
+    },
+    "step1": {
+        "inventory_path": "/home/rareboy/PycharmProjects/encraft_ai/output/run_20260605_003448_344186_image_1/inventory.json",
+        "text_path": "/home/rareboy/PycharmProjects/encraft_ai/output/run_20260605_003448_344186_image_1/complete_text.txt"
+    },
+    "step2": {
+        "requires_image_analysis": false,
+        "requires_legend_crop": false,
+        "target_pages": [
+            "all"
+        ],
+        "target_entities": [
+            "flag notes",
+            "keynotes"
+        ],
+        "primary_action": "extract_notes",
+        "prompt": "Does the sheet contain any flag notes or keynotes indicating an unresolved field condition or\ncoordination conflict to verify? If so, summarise each."
+    },
+    "step3": null,
+    "artifacts": {
+        "inventory_json": "/home/rareboy/PycharmProjects/encraft_ai/output/run_20260605_003448_344186_image_1/inventory.json",
+        "complete_text": "/home/rareboy/PycharmProjects/encraft_ai/output/run_20260605_003448_344186_image_1/complete_text.txt",
+        "routing_json": "/home/rareboy/PycharmProjects/encraft_ai/output/run_20260605_003448_344186_image_1/routing.json",
+        "legend_json": null,
+        "legend_png": "/home/rareboy/PycharmProjects/encraft_ai/output/run_20260605_003448_344186_image_1/legend.png"
+    }
+}

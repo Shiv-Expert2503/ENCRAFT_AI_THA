@@ -1,0 +1,10 @@
+{
+    "requires_image_analysis": false,
+    "requires_legend_crop": false,
+    "target_pages": [
+        "all"
+    ],
+    "target_entities": [],
+    "primary_action": "extract_notes",
+    "prompt": "What general notes apply to the diffusers and ductwork on this sheet \u2014 for example, anything\nspecified for all diffusers or all duct runs?"
+}

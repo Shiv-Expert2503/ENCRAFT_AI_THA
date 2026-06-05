@@ -1,0 +1,13 @@
+{
+    "requires_image_analysis": true,
+    "requires_legend_crop": true,
+    "target_pages": [
+        "ME-1010"
+    ],
+    "target_entities": [
+        "supply air diffuser",
+        "supply air swirl diffuser"
+    ],
+    "primary_action": "count",
+    "prompt": "Using this drawing\u2019s legend, what is the difference between a supply air diffuser and a supply air\nswirl diffuser, and how many of each appear on the Upper Ground layout?"
+}

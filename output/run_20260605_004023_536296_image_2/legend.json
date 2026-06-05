@@ -1,0 +1,13 @@
+{
+    "legend_found": true,
+    "page_number": 1,
+    "box_2d": [
+        181,
+        26,
+        755,
+        622
+    ],
+    "explanation": "The MEP legend/index or mapping table is located on page 1 and contains a consolidated list of symbols and their corresponding descriptions for ductwork, diffusers and grilles, equipment, sensors, control points, pipework, and abbreviations.",
+    "output_image_path": "/home/rareboy/PycharmProjects/encraft_ai/output/run_20260605_004023_536296_image_2/legend.png",
+    "output_json_path": "/home/rareboy/PycharmProjects/encraft_ai/output/run_20260605_004023_536296_image_2/legend.json"
+}

@@ -1,0 +1,13 @@
+{
+    "requires_image_analysis": true,
+    "requires_legend_crop": true,
+    "target_pages": [
+        "1",
+        "2"
+    ],
+    "target_entities": [
+        "exhaust fan"
+    ],
+    "primary_action": "find_location",
+    "prompt": "List the exhaust fans on the sheet and their approximate locations."
+}

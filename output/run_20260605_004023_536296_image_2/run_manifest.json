@@ -1,0 +1,56 @@
+{
+    "run_directory": "/home/rareboy/PycharmProjects/encraft_ai/output/run_20260605_004023_536296_image_2",
+    "input": {
+        "pdf_name": "image_2.pdf",
+        "pdf_path": "/home/rareboy/PycharmProjects/encraft_ai/output/run_20260605_004023_536296_image_2/image_2.pdf",
+        "prompt": "Using this drawing\u2019s legend, what is the difference between a supply air diffuser and a supply air swirl diffuser, and how many of each appear on the Upper Ground layout?",
+        "run_directory": "/home/rareboy/PycharmProjects/encraft_ai/output/run_20260605_004023_536296_image_2"
+    },
+    "step1": {
+        "inventory_path": "/home/rareboy/PycharmProjects/encraft_ai/output/run_20260605_004023_536296_image_2/inventory.json",
+        "text_path": "/home/rareboy/PycharmProjects/encraft_ai/output/run_20260605_004023_536296_image_2/complete_text.txt"
+    },
+    "step2": {
+        "requires_image_analysis": true,
+        "requires_legend_crop": true,
+        "target_pages": [
+            "ME-1010"
+        ],
+        "target_entities": [
+            "supply air diffuser",
+            "supply air swirl diffuser"
+        ],
+        "primary_action": "count",
+        "prompt": "Using this drawing\u2019s legend, what is the difference between a supply air diffuser and a supply air swirl diffuser, and how many of each appear on the Upper Ground layout?"
+    },
+    "step3": {
+        "legend_found": true,
+        "page_number": 1,
+        "box_2d": [
+            181,
+            26,
+            755,
+            622
+        ],
+        "explanation": "The MEP legend/index or mapping table is located on page 1 and contains a consolidated list of symbols and their corresponding descriptions for ductwork, diffusers and grilles, equipment, sensors, control points, pipework, and abbreviations."
+    },
+    "step4": {
+        "symbol_found": true,
+        "box_2d": [
+            276,
+            311,
+            301,
+            348
+        ],
+        "confidence_reasoning": "The symbol for 'SUPPLY AIR SWIRL DIFFUSER' is clearly visible under the 'DIFFUSERS AND GRILLES LEGEND' section."
+    },
+    "artifacts": {
+        "inventory_json": "/home/rareboy/PycharmProjects/encraft_ai/output/run_20260605_004023_536296_image_2/inventory.json",
+        "complete_text": "/home/rareboy/PycharmProjects/encraft_ai/output/run_20260605_004023_536296_image_2/complete_text.txt",
+        "routing_json": "/home/rareboy/PycharmProjects/encraft_ai/output/run_20260605_004023_536296_image_2/routing.json",
+        "legend_json": "/home/rareboy/PycharmProjects/encraft_ai/output/run_20260605_004023_536296_image_2/legend.json",
+        "legend_png": "/home/rareboy/PycharmProjects/encraft_ai/output/run_20260605_004023_536296_image_2/legend.png",
+        "symbol_json": "/home/rareboy/PycharmProjects/encraft_ai/output/run_20260605_004023_536296_image_2/symbol.json",
+        "symbol_png": "/home/rareboy/PycharmProjects/encraft_ai/output/run_20260605_004023_536296_image_2/symbol.png"
+    }
+}
