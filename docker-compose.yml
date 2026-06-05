@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  encraft-app:
+    build: .
+    container_name: encraft_pipeline
+    ports:
+      - "8501:8501"
+    volumes:
+      # Syncs your local data folder with the container in real-time
+      - ./data:/app/data
+    env_file:
+      - .env
+    restart: unless-stopped
