@@ -114,6 +114,15 @@ if st.button("Run AI Pipeline", type="primary"):
     else:
         st.info("The AI could not confidently generate an answer for this query.")
 
+    if manifest.get("fast_locator") and manifest["fast_locator"].get("success"):
+        st.divider()
+        st.subheader("📍 Precise Locations Found (Fast Search)")
+        st.success(f"Successfully bypassed VLM analysis. Located: {', '.join(manifest['fast_locator']['entities_found'])}")
+        
+        for img_path in manifest["fast_locator"]["images"]:
+            st.image(img_path, caption="Red box indicates precise location", use_container_width=True)
+    # ----------------------------------------
+    
     # 5. Provide the spatial breakdown grounding below the main answer
     if manifest.get("step8"):
         with st.expander("📍 View Spatial Breakdown (Grounding details)"):
