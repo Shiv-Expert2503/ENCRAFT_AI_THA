@@ -5,8 +5,9 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any
 import sys
-
+import time
 import fitz
+import random
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 if str(BASE_DIR) not in sys.path:
@@ -59,6 +60,9 @@ def orchestrate_pdf_run(
     # --- PHASE 2 IMPORTS ---
     from scripts.phase2.step5_text_qa import run_text_qa
     from scripts.phase2.step6_image_extractor import extract_and_crop_drawings
+    from scripts.phase2.step7_tiler import generate_overlapping_tiles
+    from scripts.phase2.step8_vlm_counter import run_vlm_counter
+    from scripts.phase2.step9_validator import run_validator
 
     pdf_path = Path(pdf_path)
     run_directory = (
@@ -115,25 +119,24 @@ def orchestrate_pdf_run(
     # ---------------------------------------------------------
     # PHASE 2 EXECUTION - BRANCHING
     # ---------------------------------------------------------
-    
-    # BRANCH A: PURE TEXT PIPELINE
-    if not routing_result.requires_image_analysis:
-        print("\n---  Routing Path: TEXT ONLY ---")
-        text_qa_json_path = run_directory / "text_qa_response.json"
-        
-        step5_result = run_text_qa(
-            user_query=prompt,
-            extracted_text_path=step1_result['text_path'],
-            output_json_path=text_qa_json_path
-        )
-        
-        manifest["step5"] = step5_result.model_dump()
-        manifest["artifacts"]["text_qa_json"] = str(text_qa_json_path)
+    time.sleep(10)
+    # 1. ALWAYS run Text QA (Step 5) to catch any text-based parts of the prompt
+    print("\n--- 🧭 Running Text Analysis ---")
+    text_qa_json_path = run_directory / "text_qa_response.json"
+    step5_result = run_text_qa(
+        user_query=prompt,
+        extracted_text_path=step1_result['text_path'],
+        output_json_path=text_qa_json_path
+    )
+    manifest["step5"] = step5_result.model_dump()
+    manifest["artifacts"]["text_qa_json"] = str(text_qa_json_path)
 
-    # BRANCH B: VISUAL PIPELINE
+    # 2. Branch for Visual Analysis (Steps 3, 4, 6, 7, 8)
+    if not routing_result.requires_image_analysis:
+        print("--- Routing Path: TEXT ONLY (Skipping Visuals) ---")
     else:
         print("\n---  Routing Path: VISUAL ANALYSIS ---")
-        
+        time.sleep(5)
         # Phase 1.5 - Legend Extraction
         legend_image_path = run_directory / "legend.png"
         legend_json_path = run_directory / "legend.json"
@@ -142,7 +145,7 @@ def orchestrate_pdf_run(
             manifest["step3"] = legend_result.model_dump()
             manifest["artifacts"]["legend_json"] = str(legend_json_path) if legend_json_path.exists() else None
             manifest["artifacts"]["legend_png"] = str(legend_image_path) if legend_image_path.exists() else None
-
+        time.sleep(20)
         # Phase 1.5 - Symbol Extraction
         symbol_json_path = run_directory / "symbol.json"
         symbol_image_output = run_directory / "symbol.png"
@@ -188,6 +191,65 @@ def orchestrate_pdf_run(
         
         manifest["step6"] = {"extracted_pages": extracted_pages}
         manifest["artifacts"]["extracted_pages"] = extracted_pages
+
+        tiled_images = []
+        if manifest["step6"] and manifest["step6"].get("extracted_pages"):
+            for extracted_img_path in manifest["step6"]["extracted_pages"]:
+                # Generate tiles for each cropped drawing from Step 6
+                tiles = generate_overlapping_tiles(
+                    image_path=str(extracted_img_path),
+                    output_dir=str(run_directory),
+                    grid_size=(3, 3) 
+                )
+                tiled_images.extend(tiles)
+        
+        manifest["step7"] = {"tiled_images": tiled_images}
+        manifest["artifacts"]["tiled_images"] = tiled_images
+
+        time.sleep(10)
+
+        # Step 8 - VLM Counting & Validation
+        if target_entities and manifest.get("step7") and manifest["step7"].get("tiled_images"):
+            print("\n--- Executing Phase 2: VLM Tiled Counting ---")
+            
+            vlm_json_path = run_directory / "vlm_counts.json"
+            
+            # Extract the reference symbol path safely
+            ref_symbol_path = manifest["artifacts"].get("symbol_png")
+            
+            vlm_results = run_vlm_counter(
+                tiled_images=manifest["step7"]["tiled_images"],
+                target_entities=target_entities,
+                reference_symbol_path=ref_symbol_path,
+                output_json_path=str(vlm_json_path)
+            )
+            
+            manifest["step8"] = vlm_results
+            manifest["artifacts"]["vlm_json"] = str(vlm_json_path)
+
+    time.sleep(10)
+    # Step 9 - Auditor Verification (Self-Reflection)
+    if manifest.get("step8"):
+        print("\n--- Executing Phase 2: Validator Self-Reflection ---")
+        validation_json_path = run_directory / "validation_report.json"
+        
+        # Grab the symbol and the first extracted page to show the LLM the "complexity"
+        ref_symbol = manifest["artifacts"].get("symbol_png")
+        extracted_pages = manifest["step6"].get("extracted_pages", [])
+        # sample_page = extracted_pages[0] if extracted_pages else None
+        sample_page = random.choice(extracted_pages) if extracted_pages else None
+        
+        validation_results = run_validator(
+            user_query=prompt,
+            len_of_images = len(extracted_pages),
+            step8_results=manifest["step8"],
+            symbol_path=ref_symbol,
+            sample_image_path=sample_page,
+            output_json_path=str(validation_json_path)
+        )
+        
+        manifest["step9"] = validation_results
+        manifest["artifacts"]["validation_json"] = str(validation_json_path)
 
     save_json(run_directory / "run_manifest.json", manifest)
     return manifest
