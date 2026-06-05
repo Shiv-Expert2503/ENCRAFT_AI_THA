@@ -77,10 +77,13 @@
 import os
 import json
 from pathlib import Path
+from pprint import pprint
 from pydantic import BaseModel, Field
 from google import genai
 from google.genai import types
+from dotenv import load_dotenv
 
+load_dotenv()  # Load environment variables from .env file, including GEMINI_API_KEY
 class RoutingDecision(BaseModel):
     requires_image_analysis: bool = Field(
         description="True if the query requires counting, locating, or visually distinguishing symbols."
@@ -153,18 +156,19 @@ def route_user_query(
 
     return routing_decision
 
-# if __name__ == "__main__":
-#     #api key required seperately here to run from main so ($export)
-#     q_test = "What general notes apply to the diffusers and ductwork on this sheet?"
+if __name__ == "__main__":
+    #api key required seperately here to run from main so ($export)
+    q_test = "How many ceiling supply diffusers are shown on the first floor, and where is each one located?"
     
-#     test_text_path = Path("data/complete_text.txt") 
+    test_text_path = Path("/home/rareboy/PycharmProjects/encraft_ai/output/run_20260605_191459_662403_image_1/complete_text.txt") 
     
-#     decision = route_user_query(
-#         user_query=q_test, 
-#         extracted_text_path=test_text_path
-#     )
+    decision = route_user_query(
+        user_query=q_test, 
+        extracted_text_path=test_text_path
+    )
 
-#     print("\n--- Validated Pydantic Object ---")
-#     print(f"Image Analysis Required: {decision.requires_image_analysis}")
-#     print(f"Entities Targeted: {decision.target_entities}")
-#     print(f"Action: {decision.primary_action}")
+    pprint(decision)
+    # print("\n--- Validated Pydantic Object ---")
+    # print(f"Image Analysis Required: {decision.requires_image_analysis}")
+    # print(f"Entities Targeted: {decision.target_entities}")
+    # print(f"Action: {decision.primary_action}")
